@@ -24,17 +24,22 @@ const Item = styled.li`
   }
 `
 
+const RESULT_URL_PREFIX = 'https://www.imdb.com/title/'
+
 export default class Suggestion extends React.Component {
   render() {
-    const { value } = this.props
+    const { value, results } = this.props
     if (!value) {
       return null
     }
     return (
       <Wrapper>
-        {[...new Array(120)].map((_, index) => (
-          <Item key={index}>
-            {'item ' + index}
+        {results.map((result, index) => (
+          <Item
+            key={index}
+            onClick={() => window.location.href = RESULT_URL_PREFIX + result.imdbID}
+          >
+            {result.Title} ({result.Year})
           </Item>
         ))}
       </Wrapper>
