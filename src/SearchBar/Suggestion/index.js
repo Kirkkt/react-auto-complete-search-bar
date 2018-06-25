@@ -3,6 +3,9 @@ import styled from 'styled-components'
 
 import redirectToId from '../../utils/redirectToId'
 
+// the background color of the focused/highlighted auto complete result
+const FOCUS_BACKGROUND = 'papayawhip'
+
 const Wrapper = styled.ul`
   border-radius: 3px;
   border-top-left-radius: 0;
@@ -21,9 +24,9 @@ const Item = styled.li`
   list-style-type: none;
   font-size: 16px;
   font-weight: 100;
-  ${props => props.focused ? 'background: papayawhip;' : ''}
+  ${props => props.focused ? `background: ${FOCUS_BACKGROUND};` : ''}
   &:hover {
-    background: papayawhip;
+    background: ${FOCUS_BACKGROUND};
   }
 `
 
