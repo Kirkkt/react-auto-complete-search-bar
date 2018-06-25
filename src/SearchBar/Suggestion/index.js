@@ -1,6 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 
+import redirectToId from '../../utils/redirectToId'
+
 const Wrapper = styled.ul`
   border-radius: 3px;
   border-top-left-radius: 0;
@@ -19,16 +21,19 @@ const Item = styled.li`
   list-style-type: none;
   font-size: 16px;
   font-weight: 100;
+  ${props => props.focused ? 'background: papayawhip;' : ''}
   &:hover {
     background: papayawhip;
   }
 `
 
-const RESULT_URL_PREFIX = 'https://www.imdb.com/title/'
-
 export default class Suggestion extends React.Component {
   render() {
-    const { value, results } = this.props
+    const {
+      value,
+      results,
+      focus,
+    } = this.props
     if (!value) {
       return null
     }
@@ -37,7 +42,8 @@ export default class Suggestion extends React.Component {
         {results.map((result, index) => (
           <Item
             key={index}
-            onClick={() => window.location.href = RESULT_URL_PREFIX + result.imdbID}
+            onClick={() => redirectToId(result.imdbID)}
+            focused={index === focus - 1}
           >
             {result.Title} ({result.Year})
           </Item>

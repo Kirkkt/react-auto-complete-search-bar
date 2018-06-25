@@ -15,6 +15,17 @@ const Input = styled.input`
 `
 
 export default class InputField extends React.Component {
+  onKeyDown = ({ key }) => {
+    if (key === 'ArrowDown') {
+      this.props.onArrowDown()
+    }
+    if (key === 'ArrowUp') {
+      this.props.onArrowUp()
+    }
+    if (key === 'Enter') {
+      this.props.onEnter()
+    }
+  }
   render() {
     return (
       <Input
@@ -22,6 +33,7 @@ export default class InputField extends React.Component {
         placeholder="Let's search something..."
         value={this.props.value}
         onChange={({ target: { value }}) => this.props.onChange(value)}
+        onKeyDown={this.onKeyDown}
       />
     )
   }
