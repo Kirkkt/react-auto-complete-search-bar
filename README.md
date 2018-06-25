@@ -10,4 +10,3 @@ A simple auto complete search bar written in ReactJS that uses the Google search
 - Outgoing link towards actual imdb pages
 - Keyboard up/down/enter handling
 - debounce user inputs as to not send excessive API requests
-- styled components
