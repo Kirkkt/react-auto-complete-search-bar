@@ -1,5 +1,5 @@
 # What is this?
-A simple auto complete search bar written in ReactJS that uses the Google search bar auto complete api and does the google search
+A simple auto complete search bar that uses the IMDB API and links to IMDB pages.
 
 # How to run
 - yarn
